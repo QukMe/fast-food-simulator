@@ -13,8 +13,6 @@
 |---|---|
 | ![main](docs/screenshots/main.png) | ![running](docs/screenshots/running.png) |
 
-(Файлы `main.png`, `running.png`, `warning.png` нужно положить в `docs/screenshots/`.)
-
 ## Требования
 
 - JDK 17 или новее
