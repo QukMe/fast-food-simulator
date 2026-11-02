@@ -9,9 +9,9 @@
 
 ## Скриншоты
 
-| Главное окно | Симуляция идёт | Предупреждение |
-|---|---|---|
-| ![main](docs/screenshots/main.png) | ![running](docs/screenshots/running.png) | ![warning](docs/screenshots/warning.png) |
+| Главное окно | Симуляция идёт |
+|---|---|
+| ![main](docs/screenshots/main.png) | ![running](docs/screenshots/running.png) |
 
 (Файлы `main.png`, `running.png`, `warning.png` нужно положить в `docs/screenshots/`.)
 
