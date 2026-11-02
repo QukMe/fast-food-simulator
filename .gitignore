@@ -1,0 +1,50 @@
+# Build output
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+*.launch
+nbproject/private/
+.nbbuild/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Private docs
+docs/DEFENSE.md
+docs/REVIEW.md
+
+# Logs and temp
+*.log
+*.tmp
+hs_err_pid*
+replay_pid*
+
+# OS/editor
+*~
+*.swp
+*.swo

@@ -1,0 +1,384 @@
+/* Fast Food Simulator: светлая «стеклянная» тема (только JavaFX CSS) */
+
+/* Окно. Цвета зон по умолчанию серые, у каждой зоны они переопределены ниже по id */
+.root-pane {
+    -fx-font-family: "Inter", "Segoe UI", "SF Pro Text", "Helvetica Neue", "Arial";
+    -fx-font-size: 13px;
+    -fx-padding: 18;
+    -fx-background-color: linear-gradient(to bottom right, #F3F6FF 0%, #E4EEFF 55%, #F1E9FF 100%);
+    -zone-accent: #94A3B8;
+    -zone-text: #475569;
+    -zone-wash: rgba(148, 163, 184, 0.12);
+    -zone-line: rgba(148, 163, 184, 0.55);
+}
+
+/* ---------- Верхняя панель ---------- */
+
+.input-panel {
+    -fx-background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.80));
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(99, 102, 241, 0.14);
+    -fx-border-radius: 22;
+    -fx-padding: 16 22 16 22;
+    -fx-effect: dropshadow(gaussian, rgba(49, 46, 129, 0.14), 26, 0, 0, 8);
+}
+
+.brand-logo {
+    -fx-background-color: linear-gradient(to bottom right, #F59E0B, #F43F5E);
+    -fx-background-radius: 14;
+    -fx-min-width: 42;
+    -fx-min-height: 42;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(244, 63, 94, 0.4), 14, 0.1, 0, 3);
+}
+
+.brand-title {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 12px;
+}
+
+/* Статус симуляции: капсула с точкой */
+.status-pill {
+    -fx-background-color: rgba(15, 23, 42, 0.06);
+    -fx-background-radius: 20;
+    -fx-padding: 7 16 7 14;
+    -fx-text-fill: #64748B;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.status-pill.running {
+    -fx-background-color: rgba(16, 185, 129, 0.14);
+    -fx-text-fill: #047857;
+}
+
+.status-dot {
+    -fx-fill: #94A3B8;
+}
+
+.status-dot.running {
+    -fx-fill: #10B981;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.8), 8, 0.2, 0, 0);
+}
+
+.field-caption {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.input-panel .text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-background-insets: 0;
+    -fx-border-color: rgba(15, 23, 42, 0.16);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 14px;
+    -fx-text-fill: #0F172A;
+    -fx-prompt-text-fill: #94A3B8;
+    -fx-highlight-fill: #06B6D4;
+    -fx-highlight-text-fill: white;
+}
+
+.input-panel .text-field:focused {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-border-color: #06B6D4;
+    -fx-effect: dropshadow(gaussian, rgba(6, 182, 212, 0.35), 10, 0.1, 0, 0);
+}
+
+.input-panel .text-field:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Спиннеры: [-] значение [+] */
+.spinner {
+    -fx-background-color: transparent;
+}
+
+.spinner.split-arrows-horizontal .text-field {
+    -fx-alignment: center;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-font-weight: bold;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: rgba(15, 23, 42, 0.07);
+    -fx-background-insets: 0;
+    -fx-padding: 8 11 8 11;
+    -fx-cursor: hand;
+}
+
+.spinner.split-arrows-horizontal .decrement-arrow-button {
+    -fx-background-radius: 12 0 0 12;
+}
+
+.spinner.split-arrows-horizontal .increment-arrow-button {
+    -fx-background-radius: 0 12 12 0;
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: rgba(6, 182, 212, 0.22);
+}
+
+.spinner .increment-arrow-button:pressed,
+.spinner .decrement-arrow-button:pressed {
+    -fx-background-color: rgba(6, 182, 212, 0.38);
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: #475569;
+}
+
+.spinner:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Предупреждение */
+.warning-label {
+    -fx-text-fill: #BE123C;
+    -fx-font-weight: bold;
+    -fx-background-color: #FFF1F2;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(244, 63, 94, 0.4);
+    -fx-border-radius: 12;
+    -fx-padding: 9 14 9 14;
+}
+
+/* Кнопки */
+.start-button {
+    -fx-background-color: linear-gradient(to bottom right, #10B981, #06B6D4);
+    -fx-background-radius: 22;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 26 10 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(6, 182, 212, 0.4), 14, 0.1, 0, 4);
+}
+
+.start-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #34D399, #22D3EE);
+    -fx-effect: dropshadow(gaussian, rgba(6, 182, 212, 0.6), 18, 0.2, 0, 5);
+}
+
+.start-button:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.start-button:disabled {
+    -fx-background-color: rgba(15, 23, 42, 0.08);
+    -fx-text-fill: rgba(15, 23, 42, 0.4);
+    -fx-opacity: 0.7;
+    -fx-effect: none;
+}
+
+.stop-button {
+    -fx-background-color: linear-gradient(to bottom right, #FB7185, #E11D48);
+    -fx-background-radius: 22;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 26 10 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(225, 29, 72, 0.4), 14, 0.1, 0, 4);
+}
+
+.stop-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #FDA4AF, #F43F5E);
+    -fx-effect: dropshadow(gaussian, rgba(225, 29, 72, 0.6), 18, 0.2, 0, 5);
+}
+
+.stop-button:pressed {
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.stop-button:disabled {
+    -fx-background-color: rgba(15, 23, 42, 0.08);
+    -fx-text-fill: rgba(15, 23, 42, 0.4);
+    -fx-opacity: 0.7;
+    -fx-effect: none;
+}
+
+/* ---------- Зоны ---------- */
+
+/* Матовое стекло с рамкой цвета зоны */
+.zone-card {
+    -fx-background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.78));
+    -fx-background-radius: 22;
+    -fx-border-color: linear-gradient(to bottom, -zone-line, rgba(99, 102, 241, 0.10));
+    -fx-border-radius: 22;
+    -fx-border-width: 1.3;
+    -fx-padding: 14 12 12 12;
+    -fx-effect: dropshadow(gaussian, rgba(49, 46, 129, 0.14), 26, 0, 0, 8);
+}
+
+#orderLineZone {
+    -zone-accent: #06B6D4;
+    -zone-text: #0E7490;
+    -zone-wash: rgba(6, 182, 212, 0.14);
+    -zone-line: rgba(6, 182, 212, 0.75);
+}
+
+#counterZone {
+    -zone-accent: #F59E0B;
+    -zone-text: #B45309;
+    -zone-wash: rgba(245, 158, 11, 0.14);
+    -zone-line: rgba(245, 158, 11, 0.75);
+}
+
+#kitchenZone {
+    -zone-accent: #F43F5E;
+    -zone-text: #BE123C;
+    -zone-wash: rgba(244, 63, 94, 0.12);
+    -zone-line: rgba(244, 63, 94, 0.7);
+}
+
+#pickupZone {
+    -zone-accent: #10B981;
+    -zone-text: #047857;
+    -zone-wash: rgba(16, 185, 129, 0.14);
+    -zone-line: rgba(16, 185, 129, 0.75);
+}
+
+#diningZone {
+    -zone-accent: #8B5CF6;
+    -zone-text: #6D28D9;
+    -zone-wash: rgba(139, 92, 246, 0.12);
+    -zone-line: rgba(139, 92, 246, 0.7);
+}
+
+/* Номер этапа в цветном «значке» */
+.zone-badge {
+    -fx-background-color: -zone-accent;
+    -fx-background-radius: 9;
+    -fx-min-width: 26;
+    -fx-min-height: 26;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, -zone-accent, 8, 0.05, 0, 2);
+}
+
+.zone-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0F172A;
+}
+
+/* Сцена зоны: светлая подложка с оттенком цвета зоны сверху */
+.zone-stage {
+    -fx-background-color: rgba(244, 247, 255, 0.95), linear-gradient(to bottom, -zone-wash, transparent);
+    -fx-background-radius: 16, 16;
+    -fx-border-color: rgba(15, 23, 42, 0.07);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+}
+
+/* Плитка со значением: подпись сверху, крупное число цветом зоны */
+.stat-tile {
+    -fx-background-color: rgba(238, 242, 255, 0.85);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(99, 102, 241, 0.10);
+    -fx-border-radius: 14;
+    -fx-padding: 7 12 6 12;
+}
+
+.info-label {
+    -fx-text-fill: #64748B;
+    -fx-font-size: 10.5px;
+    -fx-font-weight: bold;
+}
+
+/* Текстовые поля со значениями: без рамок и без подсветки фокуса */
+.info-field {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -zone-text;
+    -fx-highlight-fill: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-traversable: false;
+}
+
+.info-field:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-effect: none;
+}
+
+/* На случай, если список ожиданий сделан через TextArea */
+.info-field .content {
+    -fx-background-color: transparent;
+}
+
+/* Шевроны между зонами */
+.flow-chevron {
+    -fx-stroke: rgba(71, 85, 105, 0.45);
+    -fx-stroke-width: 2.4;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+    -fx-fill: transparent;
+}
+
+/* ---------- Журнал событий ---------- */
+
+.log-panel {
+    -fx-background-color: linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.80));
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(99, 102, 241, 0.14);
+    -fx-border-radius: 18;
+    -fx-padding: 10 14 12 14;
+    -fx-effect: dropshadow(gaussian, rgba(49, 46, 129, 0.12), 20, 0, 0, 6);
+}
+
+.log-title {
+    -fx-text-fill: #0E7490;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.log-list {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.log-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #334155;
+    -fx-font-size: 12px;
+    -fx-padding: 2 4 2 4;
+}
+
+.log-list .list-cell:selected,
+.log-list .list-cell:filled:hover {
+    -fx-background-color: rgba(6, 182, 212, 0.10);
+    -fx-text-fill: #0F172A;
+}
